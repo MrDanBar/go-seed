@@ -12,7 +12,7 @@ func main() {
 	myTestApp.Get("/v1/tests", func(context *fiber.Ctx) error {
 		testSample := Test2{"T-987894166519", "Sample of a good name", 36519819819514}
 
-		return context.SendString(testSample.Id)
+		return context.JSON(testSample)
 	})
 
 	log.Println("HOLA")
@@ -21,7 +21,7 @@ func main() {
 }
 
 type Test2 struct {
-	Id          string `json: id`
-	Name        string `json: name`
-	createdTime int64  `json: time_created`
+	Id          string `json:"id"`
+	Name        string `json:"name"`
+	CreatedTime int64  `json:"time_created"`
 }
